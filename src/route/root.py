@@ -5,7 +5,8 @@ class Root(Resource):
 
     def get(self):
 
-        message = {'aplication_name': 'gossipy-microservice',
+        message = {'application_name': 'gossipy-microservice',
+                   'version': '0.0.1',
                    'author': '9r09u3',
                    'status': 'working',
                    'available_endpoints': '/, /news, /query'}
