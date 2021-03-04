@@ -6,7 +6,6 @@ import requests
 DAILY = '&as_qdr=d'
 WEEKLY = '&as_qdr=w'
 MONTHLY = '&as_qdr=m'
-#DAILY = 'when%3A1d'
 
 URL = 'https://news.google.com/rss/search?q='
 URL_2 = 'http://www.google.com/search?q='
@@ -62,8 +61,7 @@ class SearchService:
 
         query = '+'.join(query.split())
 
-        #search_url = URL + query + frequency_option + RESULT_NUMBER + str(result)
-        search_url = URL + query + frequency_option
+        search_url = URL + query + frequency_option + RESULT_NUMBER + str(result)
 
         return search_url
 

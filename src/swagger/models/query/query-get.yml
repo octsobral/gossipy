@@ -1,0 +1,12 @@
+tags:
+  - query
+
+summary: Get all queries in queue
+
+responses:
+  200:
+    description: OK
+  400:
+    description: BAD REQUEST
+  500:
+    description: INTERNAL SERVER ERROR

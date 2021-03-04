@@ -1,0 +1,16 @@
+info:
+  title: togy-api
+  description: togy api
+  version: 1
+
+servers:
+  - url: localhost:2000
+    description: local server
+
+tags:
+  - name: root
+    description: Root directory (/)
+  - name: query
+    description: Get, put or del queries
+  - name: news
+    description: Get news
