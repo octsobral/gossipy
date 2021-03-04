@@ -14,13 +14,12 @@ app = Flask('gossipy-microservice')
 
 app.config['SWAGGER'] = {
     'title': "Gossipy Microservice",
-    'uiversion': 1,
     'description': "Gossipy Microservice Endpoints"
 }
 
 api = Api(app)
 
-swagger = Swagger(app, template_file='src/swagger/template.yml')
+swagger = Swagger(app, template_file="src/swagger/template.yml")
 
 CORS(app)
 
@@ -39,6 +38,7 @@ def configure_api():
     api.add_resource(Root, '/', endpoint='root')
 
 def create_app():
+    app.config.from_object(Config)
     app.config['ERROR_404_HELP'] = False
 
     configure_api()
