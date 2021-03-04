@@ -14,7 +14,7 @@ class QueryController(Resource):
 
     @swag_from("../swagger/models/query/query-get.yml", endpoint="query")
     def get(self):
-        secret = request.headers.get('Authorization', None)
+        secret = request.args.get('Authorization', None)
 
         if secret != self.config.SECRET_KEY:
             raise PermissionError
@@ -24,8 +24,8 @@ class QueryController(Resource):
 
     @swag_from("../swagger/models/query/query-post.yml", endpoint="query")
     def post(self):
-        secret = request.headers.get('Authorization', None)
-        query = request.headers.get('Query', None)
+        secret = request.args.get('Authorization', None)
+        query = request.args.get('Query', None)
 
         if secret != self.config.SECRET_KEY or query is None:
             raise PermissionError

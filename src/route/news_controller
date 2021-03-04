@@ -12,8 +12,8 @@ class NewsController(Resource):
         self.config = Config()
 
     def get(self):
-        secret = request.headers.get('Authorization', None)
-        query = request.headers.get('Query', None)
+        secret = request.args.get('Authorization', None)
+        query = request.args.get('Query', None)
 
         if secret != self.config.SECRET_KEY:
             raise PermissionError
