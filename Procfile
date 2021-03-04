@@ -1,2 +1,2 @@
-web: waitress-serve --port=2000 app:main
+web: gunicorn run:main
 clock: python clock.py
