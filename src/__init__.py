@@ -5,6 +5,7 @@ from flasgger import Swagger
 import json_logging
 
 from src.route.query_controller import QueryController
+from src.route.root import Root
 from src.database import database
 from src.support.config import Config
 
@@ -35,7 +36,7 @@ def configure_database():
 
 def configure_api():
     api.add_resource(QueryController, '/query', endpoint='query')
-
+    api.add_resource(Root, '/', endpoint='root')
 
 def create_app():
     app.config['ERROR_404_HELP'] = False
