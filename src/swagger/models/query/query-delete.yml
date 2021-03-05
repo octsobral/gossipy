@@ -3,6 +3,22 @@ tags:
 
 summary: Delete specific query from queue
 
+parameters:
+  - in: query
+    name: Authorization
+    schema:
+      type: string
+      example: digite_aqui
+    required: true
+    description: Authorization to run endpoint
+  - in: query
+    name: Query
+    schema:
+      type: string
+      default: teste
+    required: false
+    description: Query you want to delete
+
 responses:
   200:
     description: OK

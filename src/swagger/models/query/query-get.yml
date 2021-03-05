@@ -3,6 +3,15 @@ tags:
 
 summary: Get all queries in queue
 
+parameters:
+  - in: query
+    name: Authorization
+    schema:
+      type: string
+      example: digite_aqui
+    required: true
+    description: Authorization to run endpoint
+
 responses:
   200:
     description: OK

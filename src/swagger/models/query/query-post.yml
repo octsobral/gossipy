@@ -3,6 +3,22 @@ tags:
 
 summary: Add new query to queue
 
+parameters:
+  - in: query
+    name: Authorization
+    schema:
+      type: string
+      example: write_here
+    required: true
+    description: Authorization to run endpoint
+  - in: query
+    name: Query
+    schema:
+      type: string
+      default: teste
+    required: false
+    description: Query you want to add to queue
+
 responses:
   200:
     description: OK

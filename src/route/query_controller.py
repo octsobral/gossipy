@@ -3,7 +3,6 @@ from flasgger import swag_from
 from flask import request
 from src.service.query_service import QueryService
 from src.support.config import Config
-from src.support.utils import str_to_bool
 
 
 class QueryController(Resource):
