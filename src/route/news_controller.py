@@ -2,6 +2,7 @@ from flask_restful import Resource
 from flasgger import swag_from
 from flask import request
 from src.service.query_service import QueryService
+from src.service.news_service import NewsService
 from src.support.config import Config
 from src.support.utils import str_to_bool
 
@@ -10,6 +11,7 @@ class NewsController(Resource):
 
     def __init__(self):
         self.config = Config()
+        self.news_service = NewsService()
 
     def get(self):
         secret = request.args.get('Authorization', None)
@@ -18,8 +20,8 @@ class NewsController(Resource):
         if secret != self.config.SECRET_KEY:
             raise PermissionError
         else:
-            query = self.query_service.get_query()
-            return {'query': query}
+            news = self.news_service.get_news()
+            return {'news': news}
 
     def post(self):
         secret = request.headers.get('Authorization', None)

@@ -14,3 +14,9 @@ class News(mongo.Document):
     published_at = mongo.StringField(required=True, editable=False)
     timestamp = mongo.DateTimeField(required=True, default=datetime.utcnow, editable=False)
     hash = mongo.StringField(required=True, editable=False)
+
+    meta = {
+        'indexes': [
+            'hash', 'published_at', 'query'
+        ]
+    }

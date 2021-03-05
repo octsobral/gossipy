@@ -1,7 +1,7 @@
 tags:
   - query
 
-summary: Add new query to queue
+summary: Delete specific query from queue
 
 responses:
   200:

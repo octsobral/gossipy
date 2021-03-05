@@ -32,3 +32,14 @@ class QueryController(Resource):
         else:
             self.query_service.add_query(query)
             return {'msg': 'Query added to queue!'}
+
+    @swag_from("../swagger/models/query/query-delete.yml", endpoint="query")
+    def delete(self):
+        secret = request.args.get('Authorization', None)
+        query = request.args.get('Query', None)
+
+        if secret != self.config.SECRET_KEY or query is None:
+            raise PermissionError
+        else:
+            self.query_service.delete_query(query)
+            return {'msg': 'Query deleted from queue!'}

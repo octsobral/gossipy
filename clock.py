@@ -1,6 +1,6 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-from src.service.news_api_search_service import NewsAPISearchService
+from src.service.news_service import NewsService
 from src.database import database
 
 scheduler = BlockingScheduler()
@@ -9,10 +9,7 @@ scheduler = BlockingScheduler()
 def scheduled_search():
 
     database.connect()
-    news_api_search_service = NewsAPISearchService()
-    news_api_search_service.search()
-
-
-    print('This job is run every weekday at 5pm.')
+    news_service = NewsService()
+    news_service.add_news()
 
 scheduler.start()

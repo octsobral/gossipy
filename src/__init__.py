@@ -5,6 +5,7 @@ from flasgger import Swagger
 import json_logging
 
 from src.route.query_controller import QueryController
+from src.route.news_controller import NewsController
 from src.route.root import Root
 from src.database import database
 from src.support.config import Config
@@ -36,6 +37,7 @@ def configure_database():
 def configure_api():
     api.add_resource(QueryController, '/query', endpoint='query')
     api.add_resource(Root, '/', endpoint='root')
+    api.add_resource(NewsController, '/news', endpoint='news')
 
 def create_app():
     app.config.from_object(Config)

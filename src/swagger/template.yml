@@ -11,6 +11,6 @@ tags:
   - name: root
     description: Root directory
   - name: query
-    description: Get, put or del queries
+    description: Get, post or delete queries
   - name: news
     description: Get news
