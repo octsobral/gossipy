@@ -29,7 +29,7 @@ class NewsService:
         news = self.search_service.search()
 
         for article in news:
-            if len(News.objects(hash=article['hash'])) is not 0:
+            if len(News.objects(url=article['url'])) is not 0:
                 continue
             else:
                 news = News()

@@ -17,6 +17,6 @@ class News(mongo.Document):
 
     meta = {
         'indexes': [
-            'hash', 'published_at', 'query'
+            'url', 'published_at', 'query'
         ]
     }
