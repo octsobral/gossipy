@@ -1,14 +1,14 @@
 tags:
   - query
 
-summary: Add new query to queue
+summary: Delete specific query from queue
 
 parameters:
   - in: query
     name: Authorization
     schema:
       type: string
-      example: write_here
+      example: digite_aqui
     required: true
     description: Authorization to run endpoint
   - in: query
@@ -17,7 +17,7 @@ parameters:
       type: string
       default: teste
     required: false
-    description: Query you want to add to queue
+    description: Query you want to delete
 
 responses:
   200:

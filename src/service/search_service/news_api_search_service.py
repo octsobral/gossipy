@@ -1,25 +1,25 @@
 import datetime
 import requests
 
-from src.database.model.news import News
-from src.database.model.query import Query
+from src.service.query_service import QueryService
 from src.support.config import Config
 
 SEARCH_ENDPOINT = 'http://newsapi.org/v2/everything?'
-
-QUERY_DATE_RANGE = ['day', 'week', 'month', 'year']
 
 
 class NewsAPISearchService:
 
     def __init__(self):
         self.config = Config()
+        self.query_service = QueryService()
 
-    def search(self, query, query_date_range):
+    def search(self):
 
         session = requests.Session()
 
-        urls = self._create_search_url(self)
+        queries = self.query_service.get_query()
+
+        urls = self._create_search_url(queries)
 
         response = []
 
@@ -33,23 +33,21 @@ class NewsAPISearchService:
                 result['source'] = article['source']['name']
                 result['url'] = article['url']
                 result['published_at'] = article['publishedAt']
-                result['hash'] = hash(result['url'])
+                result['hash'] = str(hash(result['url']))
                 response.append(result)
 
         return response
 
-    @staticmethod
-    def _create_search_url(self):
+    def _create_search_url(self, queries):
 
         today = datetime.date.today()
         yesterday = today - datetime.timedelta(days=1)
 
         list_of_search_items = []
 
-        for query in self.config.SEARCH_TERMS:
-            standard_query = query.replace(" ", "-")
+        for query in queries:
             url = SEARCH_ENDPOINT + 'q=' + query + '&from=' + str(yesterday) + '&apiKey=' + self.config.NEWS_API_KEY
-            list_of_search_items.append((standard_query, url))
+            list_of_search_items.append((query, url))
 
         return list_of_search_items
 

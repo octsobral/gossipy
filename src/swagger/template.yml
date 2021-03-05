@@ -1,6 +1,6 @@
 info:
-  title: togy-api
-  description: togy api
+  title: gossipy
+  description: gossipy microservice
   version: 1
 
 servers:
@@ -9,8 +9,8 @@ servers:
 
 tags:
   - name: root
-    description: Root directory (/)
+    description: Root directory
   - name: query
-    description: Get, put or del queries
+    description: Get, post or delete queries
   - name: news
     description: Get news

@@ -17,4 +17,7 @@ if __name__ == '__main__':
         )
     else:
         # run application in production
-        serve(app, host=config.HOST, port=config.PORT)
+        app.run(
+            host=host, debug=debug, port=port, use_reloader=debug
+        )
+        #serve(app, host=config.HOST, port=config.PORT)

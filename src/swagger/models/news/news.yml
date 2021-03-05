@@ -1,7 +1,7 @@
 tags:
-  - query
+  - news
 
-summary: Add new query to queue
+summary: Get news
 
 parameters:
   - in: query
@@ -11,13 +11,6 @@ parameters:
       example: write_here
     required: true
     description: Authorization to run endpoint
-  - in: query
-    name: Query
-    schema:
-      type: string
-      default: teste
-    required: false
-    description: Query you want to add to queue
 
 responses:
   200:
