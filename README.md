@@ -1,2 +1,2 @@
 # gossipy
-Gossipy is a service designed to search Google and organize results in a .csv file
+Gossipy is a microservice designed to search on web and save results in database according to queries added to queue 
